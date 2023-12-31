@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup Table</title>
+    <style>
+       
+
+        .popupz {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+
+<div class="col-md-6 mb-4 stretch-card transparent">
+    <div class="card card-tale">
+        <div class="card-body">
+            <p class="mb-4">Number of Bookings</p>
+            <p class="fs-30 mb-2">4006</p>
+            <button type="button" class="btn btn-success mr-2" onclick="opendns()">Show more</button>
+        </div>
+    </div>
+</div>
+
+
+<div class="popupz" id="popup_dns">
+    <h4 class="card-title">Bordered table</h4>
+    <p class="card-description">Add class <code>.table-bordered</code></p>
+    <div class="table-responsive pt-3">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>First name</th>
+                <th>Progress</th>
+                <th>Amount</th>
+                <th>Deadline</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Add your table rows here -->
+            </tbody>
+        </table>
+    </div>
+    <button onclick="closepay()">Close</button>
+</div>
+
+<script>
+    function opendns() {
+        
+        document.getElementById("popup_dns").style.display = "block";
+    }
+
+    function closepay() {
+        
+        document.getElementById("popup_dns").style.display = "none";
+    }
+</script>
+
+</body>
+</html>

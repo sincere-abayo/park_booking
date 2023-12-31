@@ -1,0 +1,16 @@
+{
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    },
+    "require": {
+        "ramsey/uuid": "^4.7",
+        "guzzlehttp/guzzle": "^7.8",
+        "phpmailer/phpmailer": "^6.9",
+        "omnipay/omnipay": "^3.2",
+        "league/omnipay": "^3.2",
+        "omnipay/paypal": "^3.0",
+        "tecnickcom/tcpdf": "^6.6"
+    }
+}
