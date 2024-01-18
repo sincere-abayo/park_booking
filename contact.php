@@ -78,7 +78,7 @@ include 'php/conn.php';
 				</div>
 				<div class="col-xs-8 text-right menu-1">
 					<ul>
-						<li><a href="destination.html">Destination</a></li>
+						<li><a href="destination.php">Destination</a></li>
 					
 						<li class="active"><a href="contact.html">Contact</a></li>
 						<li class="has-dropdown">
