@@ -1,24 +1,27 @@
 <?php 
 error_reporting(0);
 include('../php/conn.php');
-$ticket=$_SESSION['ticket'];
-if (empty($ticket) || !isset($_SESSION['ticket'])) {
-	$ticket=$_GET['t_number'];
-	$_SESSION['ticket']=$ticket;
-}
-global $ticket_data;
-global $amount;
-$selectTicket=$conn->query("SELECT * from ticket where t_number='$ticket'");
-if (mysqli_num_rows($selectTicket)) {
-	$ticket_data=mysqli_fetch_array($selectTicket);
-	$amount=5000;
-	if ($ticket_data['t_nationality'] !="other") 
-	{
+// $ticket=$_SESSION['ticket'];
+// if (empty($ticket) || !isset($_SESSION['ticket'])) {
+// 	$ticket=$_GET['t_number'];
+// 	$_SESSION['ticket']=$ticket;
+// }
+// global $ticket_data;
+$amount=$_POST['amount'];
+$name=$_POST['name'];
+$email=$_POST['email'];
+// $selectTicket=$conn->query("SELECT * from ticket where t_number='$ticket'");
+// if (mysqli_num_rows($selectTicket)) 
+// {
+// 	$ticket_data=mysqli_fetch_array($selectTicket);
+// 	$amount=5000;
+// 	if ($ticket_data['t_nationality'] !="other") 
+// 	{
 	
-		$amount=1500;
-			}
+// 		$amount=1500;
+// 			}
 			
-}
+// }
 // else {
 // 	header("location:index.php");
 // 	exit();
@@ -114,12 +117,13 @@ if (mysqli_num_rows($selectTicket)) {
 				
 				<div class="row">
 					<div class="col-sm-4 col-xs-12">
-						<div id="gtco-logo"><a href="index.php">Kigali &mdash; Traveler <em>.</em></a></div>
+						<div id="gtco-logo"><a href="index.html">Kigali &mdash; Traveler <em>.</em></a></div>
 					</div>
 					<div class="col-xs-8 text-right menu-1">
 						<ul>
-							<li><a href="../destination.php">Destination</a></li>
+							<li><a href="../destination.html">Destination</a></li>
 							
+							<li><a href="../pricing.html">Pricing</a></li>
 							<li><a href="../contact.html">Contact</a></li>
 							
 						</ul>	
@@ -137,8 +141,8 @@ if (mysqli_num_rows($selectTicket)) {
 						
 		
 						<div class="row row-mt-15em">
-							<div class="col-md-7 mt-text animate-box" data-animate-effect="fadeInUp">
-								<h1>Confirm your payment ,choose your best </h1>	
+							<div class="col-md-7 md-text  animate-box" data-animate-effect="fadeInUp">
+								<h1 style="color:black;font-weight:bold">Confirm your payment to Refound project ,choose your best </h1>	
 							</div>
 							<div class="col-md-4 col-md-push-1 animate-box" data-animate-effect="fadeInRight">
 								<div class="form-wrap">
@@ -146,14 +150,14 @@ if (mysqli_num_rows($selectTicket)) {
 										
 										<div class="tab-content">
 											<div class="tab-content-inner active" data-content="signup">
-							<h3 style="color: rgb(251, 181, 4);">Buy Entrance ticket of <?php echo $ticket_data['t_nationality'] ?><small style="color: rgb(44, 99, 154);">
+							<h3 style="color: rgb(251, 181, 4);">Refound project <?php echo $ticket_data['t_nationality'] ?><small style="color: rgb(44, 99, 154);">
 							<?php echo $amount;?>     Rwf</small> with  </h3>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
 												
                                                   
                                                     <!-- Image and Submit Button for PayPal -->
                                                     <div class="row align-items-center mt-1">
                                                         <div class="col-sm-1">
-                                                            <img class="img-fluid" src="../images/mtn.png " alt="PayPal Logo" style="width: 30px; border-radius: 12px;">
+                                                            <img class="img-fluid" src="../images/mtn.png " alt="MTN Logo" style="width: 30px; border-radius: 12px;">
                                                         </div>
                                                         <div class="col-md-8">
                                                             <input type="submit" class="btn btn-success btn-block" onclick="openPopup()" value="MTN">
@@ -163,13 +167,14 @@ if (mysqli_num_rows($selectTicket)) {
 											
 														<div class="row form-group">
                                                         <div class="col-sm-1">
-                                                            <img  class="img-fluid" src="../images/paypal.png" alt="MTN Logo" style="width:35px;border-radius: 12px;">
+                                                            <img  class="img-fluid" src="../images/paypal.png" alt="PayPal Logo" style="width:35px;border-radius: 12px;">
                                                         </div>
                                                         <div class="col-md-8">
-								<form id="payForm">
-									<!-- <input type="hidden" id="number" value="<?php echo $ticket ?> "> -->
-									<!-- <input type="hidden" id="amount" value="<?php echo $amount ?> "> -->
-								<input type="submit" class="btn btn-primary btn-block" value="Paypal" >
+								<form action="refound_paypal.php" method="post">
+									<input type="hidden" name="name" value="<?php echo $name ?> ">
+									<input type="hidden" name="email" value="<?php echo $email ?> ">
+									<input type="hidden" name="amount" value="<?php echo $amount ?> ">
+								<input type="submit" name="paypal" class="btn btn-primary btn-block" value="Paypal" >
                              	</form> 
 								  
 							                              </div> 

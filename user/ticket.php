@@ -6,7 +6,8 @@ require '../php/conn.php';
 $ticketNumber= $_GET['t_number'];
 // $amount=$_SESSION['paidAmount'];
 $size=200;
-$url="<a href='https://feasible-weekly-ringtail.ngrok-free.app/traveler-master/user/agent.php?t_number=$ticketNumber'></a>";
+$url = "http://localhost/nyandungu/user/agent.php?t_number=$ticketNumber";
+// $url="<a href='http://localhost/nyandungu/user/agent.php?t_number=$ticketNumber'>verify ticket</a>";
 $qrCodeUrl = "https://chart.googleapis.com/chart?chs={$size}x{$size}&cht=qr&chl=" . urlencode($url);
     $selectClient = $conn->query("SELECT * from ticket where t_number='$ticketNumber'");
 
@@ -76,9 +77,10 @@ body {
    </p>Entrance date-time: $date - $time </p>
    <p>Ticket Number: $ticketNumber</p>
    <div>
-   <img src=\"$qrCodeUrl\" alt=\"QR Code\">
+   <a href='$url' target='_blank'><img src='$qrCodeUrl' alt='QR Code'></a>
 </div>
    ";
+  //  <img src=\"$qrCodeUrl\" alt=\"QR Code\">
  ?>
 <a href="index.php">Dashboard</a>
  

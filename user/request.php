@@ -19,6 +19,7 @@ global $authorization;
 
 
 
+
 $authorization = 'Bearer '.$accessToken;
 // $callbackUrl = 'Your_Callback_URL';
 $referenceId = $uuidString;

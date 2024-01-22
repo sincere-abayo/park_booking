@@ -6,10 +6,12 @@ use Omnipay\Omnipay;
 
 if (isset($_POST['paypal'])) {
     $amount = $_POST['amount'];
-    $number=$_POST['number'];
+   $name=$_POST['name'];
+   $email=$_POST['email'];
     $amount=(float)$amount;
     $_SESSION['paidAmount']=$amount;
-    $_SESSION['paidTicket']=$number;
+    $_SESSION['payerEmail']=$email;
+    $_SESSION['payername']=$name;
     $_SESSION['method']= "Paypal";
 
     // Fetching JSON data from ExchangeRate-API for USD to RWF conversion
@@ -43,9 +45,9 @@ if (isset($_POST['paypal'])) {
                 $response = $gateway->purchase([
                     'amount' => $formatedAmount,
                     'currency' => 'USD',
-                    'description' => 'Buying Nyandungu ticket',
-                    'returnUrl' => 'https://faithful-big-martin.ngrok-free.app/nyandungu/user/success.php',
-                    'cancelUrl' => 'https://faithful-big-martin.ngrok-free.app/nyandungu/user/canceled.php',
+                    'description' => 'Refound project',
+                    'returnUrl' => 'https://faithful-big-martin.ngrok-free.app/nyandungu/user/refound_success.php',
+                    'cancelUrl' => 'https://faithful-big-martin.ngrok-free.app/nyandungu/user/refound_canceled.php',
                 ])->send();
 
                 // Redirect to PayPal for payment authorization
@@ -56,7 +58,9 @@ if (isset($_POST['paypal'])) {
                 } 
                 else {
                     // Payment failed: display error
-                    echo $response->getMessage();
+                    // echo $response->getMessage();
+                    echo "Payment failed. Details: " . print_r($response->getData(), true);
+
                 }
             } else {
                 echo "<script>history.back()</script>";
