@@ -438,7 +438,7 @@ $totalDonation = mysqli_num_rows($donations);
             
           </li>
           
-          <!-- <li class="nav-item">
+          <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
               <i class="icon-bar-graph menu-icon"></i>
               <span class="menu-title">Charts</span>
@@ -449,7 +449,7 @@ $totalDonation = mysqli_num_rows($donations);
                 <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">Chart of grouth</a></li>
               </ul>
             </div>
-          </li> -->
+          </li>
          
           <li class="nav-item"> <a class="nav-link" href="pages/forms/agent.php">Agents</a></li>
 
@@ -1051,9 +1051,7 @@ echo $date;
             <div class="card">
               <div class="card-body">
                 <h4 class="card-title">General Ticket report</h4>
-                <!-- <p class="card-description">
-                  
-                </p> -->
+ 
                 <div class="table-responsive pt-3">
                   <table class="table table-bordered">
                     <thead>
@@ -1206,7 +1204,7 @@ echo $date;
           <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
               <div class="card-body">
-                <h4 class="card-title">General User report</h4>
+                <h4 class="card-title">Donated users</h4>
                 <!-- <p class="card-description">
                   
                 </p> -->
