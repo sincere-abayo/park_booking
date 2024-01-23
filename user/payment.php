@@ -30,7 +30,7 @@ if (mysqli_num_rows($selectTicket)) {
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Kigali Traveler &mdash; and Refound </title>
+	<title>Traveler &mdash; Free Website Template, Free HTML5 Template by FreeHTML5.co</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Free HTML5 Website Template by FreeHTML5.co" />
 	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
@@ -114,12 +114,13 @@ if (mysqli_num_rows($selectTicket)) {
 				
 				<div class="row">
 					<div class="col-sm-4 col-xs-12">
-						<div id="gtco-logo"><a href="index.php">Kigali &mdash; Traveler <em>.</em></a></div>
+						<div id="gtco-logo"><a href="index.html">Kigali &mdash; Traveler <em>.</em></a></div>
 					</div>
 					<div class="col-xs-8 text-right menu-1">
 						<ul>
-							<li><a href="../destination.php">Destination</a></li>
+							<li><a href="../destination.html">Destination</a></li>
 							
+							<li><a href="../pricing.html">Pricing</a></li>
 							<li><a href="../contact.html">Contact</a></li>
 							
 						</ul>	

@@ -98,7 +98,7 @@ include 'php/loged.php';
 					</div>
 					<div class="col-xs-8 text-right menu-1">
 						<ul>
-							<li><a href="destination.html">Destination</a></li>
+							<li><a href="destination.php">Destination</a></li>
 							
 							<!-- <li><a href="pricing.html">Pricing</a></li> -->
 							<li><a href="contact.php">Contact</a></li>
@@ -205,7 +205,7 @@ if (isset($_POST['login'])) {
 										<div class="tab-content">
 											
 											<div class="tab-content-inner active" data-content="signup">
-												<h3>Login from</h3>
+												<h3>User Login </h3>
 												<form method="post">
 													<div class="row form-group">
 														<div class="col-md-12">

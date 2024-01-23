@@ -46,8 +46,8 @@ if (isset($_POST['paypal'])) {
                     'amount' => $formatedAmount,
                     'currency' => 'USD',
                     'description' => 'Refound project',
-                    'returnUrl' => 'https://faithful-big-martin.ngrok-free.app/nyandungu/user/refound_success.php',
-                    'cancelUrl' => 'https://faithful-big-martin.ngrok-free.app/nyandungu/user/refound_canceled.php',
+                    'returnUrl' => 'https://faithful-big-martin.ngrok-free.app/park_booking/user/refound_success.php',
+                    'cancelUrl' => 'https://faithful-big-martin.ngrok-free.app/park_booking/user/refound_canceled.php',
                 ])->send();
 
                 // Redirect to PayPal for payment authorization
@@ -56,13 +56,15 @@ if (isset($_POST['paypal'])) {
                     $response->redirect();
                     exit(); // Ensure script termination after redirection
                 } 
-                else {
+                else 
+                {
                     // Payment failed: display error
                     // echo $response->getMessage();
                     echo "Payment failed. Details: " . print_r($response->getData(), true);
 
                 }
-            } else {
+            } 
+            else {
                 echo "<script>history.back()</script>";
             }
         } catch (Exception $e) {

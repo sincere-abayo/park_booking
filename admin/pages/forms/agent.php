@@ -466,10 +466,10 @@ $totalActivatedLast30Days = mysqli_num_rows($activatedLast30Days);
 
 <div class="row" >
            
-           
-            <div class="col-12 grid-margin stretch-card" id="create">
+           <div class="col-2 "></div>
+            <div class="col-6  grid-margin stretch-card" id="create">
               
-              <div class="card" >
+              <div class="card bg-info" >
                 <div class="card-body">
                   <h4 class="card-title">Create agents</h4>
                   <p class="card-description">
@@ -508,7 +508,7 @@ size: 60px;
                   <form method="post"  class="forms-sample" >
                    
                     <div class="form-group">
-                      <label for="exampleInputCity1">Username</label>
+                      <label for="exampleInputCity1">Usernamesss</label>
                       <input type="text" class="form-control" required name="username" placeholder="enter agent username">
                     </div>
                     <div class="form-group">
@@ -531,11 +531,12 @@ size: 60px;
                 document.getElementById('btn').style.display="block";
               }
             </script>
-            <input type="button" id="btn" value="create new agent" onclick="showCreateArea()">
+           
+            <button type="button" id="btn"  onclick="showCreateArea()" class="btn btn-success col-md-2 py-1">create new agent</button>
             <div class="col-md-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <p class="card-title mb-0">Agents <?php
+                  <p class="card-title mb-0">Agents List <?php
                   
                   if (isset($_POST['aprove'])) {
                     $id=$_POST['id'];
@@ -594,13 +595,17 @@ size: 60px;
                  
                     
                         echo "<tr>
-                        <td>$user <button class='copy-button' onclick='copyText(\"$user\")'>Copy</button></td>
-                        <td>$password <button class='copy-button' onclick='copyText(\"$password\")'>Copy</button></td>
+                        <td>$user  </td>
+                        
+
+                        <td>$password</td>
+
                         $status
                         <td>
                           <form method='post'>
                             <input type='hidden' name='id' value='$id'>
-                            <button name='approve' class='link-button'>Approve</button> || 
+                          
+                            <button  name='approve' class='link-button '>Approvve</button> || 
                             <input type='hidden' value='$id'>
                             <button name='cancel' class='link-button'>Cancel</button>
                           </form>

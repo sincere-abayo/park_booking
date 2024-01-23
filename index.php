@@ -82,7 +82,7 @@ $select=$conn->query("SELECT * from destination");
 						<li><a href="contact.php">Contact</a></li>
 						<!-- <li><a href="#"><i class="fas fa-shopping-cart"></i> Cart</a></li> -->
 						<li class="has-dropdown">
-							<a href="#">account</a>
+							<a href="#">Account</a>
 							<ul class="dropdown">
 								<li><a href="login.php">Login</a></li>
 								<li><a href="admin_login.html">Admin</a></li>
@@ -318,11 +318,13 @@ $select=$conn->query("SELECT * from destination");
 									</div>
 								</div>
 							</div>
-							
+							<!-- You can add additional buttons or actions here -->
 							<div class="modal-footer">
 								<button type="button" class="btn btn-success" data-dismiss="modal">Refound</button>
-								<!-- You can add additional buttons or actions here -->
+								
 							</div>
+							<!-- Donate form start -->
+							<!-- Donate form end -->
 						</div>
 					</div>
 				</div>

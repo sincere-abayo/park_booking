@@ -80,11 +80,11 @@ $type=$_SESSION['sub_type'];
 	
 	<!-- <div class="page-inner"> -->
 	
-	<div id="page">
+	<div id="page ">
 		<header id="gtco-header" class="gtco-cover gtco-cover-md" role="banner" style="background-image: url(images/rest.jpg)">
 		
 										
-										<div class="tab-content">
+										<div class="tab-content col-md-8 ">
 											
 							<h3 style="color: rgb(251, 181, 4);"> Nyandundungu <?php echo $type;?> Entrance monthly Suscription
                             Amount: <small style="color: rgb(44, 99, 154);">
@@ -92,7 +92,7 @@ $type=$_SESSION['sub_type'];
 												
                                                   
                                                     <!-- Image and Submit Button for PayPal -->
-                                                    <div class="row align-items-center mt-1">
+                                                    <div class="row align-items-center mt-1 ">
                                                         <div class="col-sm-1">
                                                             <img class="img-fluid" src="../images/mtn.png " alt="PayPal Logo" style="width: 30px; border-radius: 12px;">
                                                         </div>
@@ -108,7 +108,8 @@ $type=$_SESSION['sub_type'];
                                                         </div>
                                                         <div class="col-md-8">
 								<form action="sub_paypal.php" method="POST">
-									<input type="hidden" name="number" value="<?php echo $sub_number ?> ">
+									<input type="hidden" name="number"  value="<?php echo $sub_number ?> ">
+									
 									<input type="hidden" name="amount" value="<?php echo $amount ?> ">
 								<input type="submit" name="paypal" class="btn btn-primary btn-block" value="Paypal payment" >
                              	</form> 
@@ -118,13 +119,13 @@ $type=$_SESSION['sub_type'];
 														
 													</div>
 												
-													<div class="popup" id="popup">
+													<div class="popup " id="popup">
 															
-														<form action="sub_request.php" method="POST">
+														<form action="sub_request.php" method="POST" class=" ">
 															<!-- Add your new account form fields here -->
 															<div class="row form-group">
 																<h3><small style="color: rgb(44, 99, 154);">
-							Pay <?php echo $amount;?>     Rwf with MTN</small> </h3>
+																	Pay <?php echo $amount;?> Rwf with MTN</small> </h3>
 																<div class="col-md-12">
 																	<label for="newUsername">Enter mtn number to pay with</label>
 									                                <input type="hidden" name="sub_number" value="<?php echo $sub_number; ?> ">
@@ -134,7 +135,7 @@ $type=$_SESSION['sub_type'];
 														
 															
 															<div class="row form-group">
-																<div class="col-md-6">
+																<div class="col-sm-4">
 																	<input type="submit" name="mtn" class="btn btn-primary btn-block" value="Submit">
 																</div>
 															</div>

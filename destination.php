@@ -75,17 +75,14 @@ $select=$conn->query("SELECT * from destination");
 				<div class="col-xs-8 text-right menu-1">
 					<ul>
 						<li class="active"><a href="destination.php">Destination</a></li>
+						<li><a href="contact.php">Contact</a></li>
 						<li class="has-dropdown">
-							<a href="#">Travel</a>
-							<ul class="dropdown">
-								<li><a href="#">Europe</a></li>
-								<li><a href="#">Asia</a></li>
-								<li><a href="#">America</a></li>
-								<li><a href="#">Canada</a></li>
-							</ul>
-						</li>
-						<li><a href="pricing.html">Pricing</a></li>
-						<li><a href="contact.html">Contact</a></li>
+								<a href="#">account</a>
+								<ul class="dropdown">
+									<li><a href="login.php">Login</a></li>
+									<li><a href="admin_login.html">Admin</a></li>
+								</ul>
+							</li>
 					</ul>	
 				</div>
 			</div>
@@ -93,7 +90,7 @@ $select=$conn->query("SELECT * from destination");
 		</div>
 	</nav>
 	
-	<header id="gtco-header" class="gtco-cover gtco-cover-sm" role="banner" style="background-image: url(images/resta.jpg)">
+	<header id="gtco-header" class="gtco-cover gtco-cover-sm" role="banner" style="background-image: url(images/rest.jpg)">
 		<div class="overlay"></div>
 		<div class="gtco-container">
 			<div class="row">
@@ -101,7 +98,7 @@ $select=$conn->query("SELECT * from destination");
 					<div class="row row-mt-15em">
 
 						<div class="col-md-12 mt-text animate-box" data-animate-effect="fadeInUp">
-							<h1>Destination</h1>	
+							<h2>Tourism Booking and Donors System</h2>	
 						</div>
 						
 					</div>

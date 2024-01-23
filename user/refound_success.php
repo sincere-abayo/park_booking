@@ -4,7 +4,7 @@ session_start();
 require_once '../vendor/autoload.php';
 include_once '../vendor/ramsey/uuid/src/Uuid.php';
 use ramsey\Uuid\Uuid;
-if(!isset($_SESSION["payerEmail"]) && !isset($_SESSION["payerName"]))
+if(!isset($_SESSION["payerEmail"]) && !isset($_SESSION["payername"]))
 {
     echo "<script>history.back()</script>";
 }

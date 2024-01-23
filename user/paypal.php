@@ -6,7 +6,7 @@ use Omnipay\Omnipay;
 
 if (isset($_POST['paypal'])) {
     $amount = $_POST['amount'];
-    $number=$_POST['number'];
+   $number=$_POST['number'];
     $amount=(float)$amount;
     $_SESSION['paidAmount']=$amount;
     $_SESSION['paidTicket']=$number;
@@ -44,8 +44,8 @@ if (isset($_POST['paypal'])) {
                     'amount' => $formatedAmount,
                     'currency' => 'USD',
                     'description' => 'Buying Nyandungu ticket',
-                    'returnUrl' => 'https://faithful-big-martin.ngrok-free.app/nyandungu/user/success.php',
-                    'cancelUrl' => 'https://faithful-big-martin.ngrok-free.app/nyandungu/user/canceled.php',
+                    'returnUrl' => 'https://halibut-settled-sharply.ngrok-free.app/nyandungu/user/success.php',
+                    'cancelUrl' => 'https://halibut-settled-sharply.ngrok-free.app/nyandungu/user/canceled.php',
                 ])->send();
 
                 // Redirect to PayPal for payment authorization

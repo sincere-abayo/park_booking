@@ -57,13 +57,6 @@ $totalMessageLast30Days = mysqli_num_rows($messageLat30Days);
 $activatedLast30Days=$conn->query("SELECT * FROM subscription WHERE created_at >= '$thirtyDaysAgo'");
 $totalActivatedLast30Days = mysqli_num_rows($activatedLast30Days);
 
-//Query to get donation for last 30 days
-$donationLast30Days=$conn->query("SELECT * FROM refound WHERE r_date >= '$thirtyDaysAgo'");
-$totalDonationLast30Days = mysqli_num_rows($donationLast30Days);
-
-//Query to get donation
-$donations=$conn->query("SELECT * FROM refound");
-$totalDonation = mysqli_num_rows($donations);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -219,8 +212,7 @@ $totalDonation = mysqli_num_rows($donations);
           </li> -->
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-              <!-- <img src="images/faces/face28.jpg" alt="profile"/> -->
-              <span class="ti-user" style="color: black;"></span>
+              <img src="images/faces/face28.jpg" alt="profile"/>
        
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
@@ -696,7 +688,7 @@ echo $date;
             <button onclick="closedns()" class="btn btn-danger mr-2">Close</button>
         </div>
     </div>
-
+</div>
 
 <script>
     function opendns() {
@@ -710,11 +702,11 @@ echo $date;
 
 
               <!-- Subscriptions  end -->
-          
+              <!-- <div class="row">
                 <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
                   <div class="card card-light-blue">
                     <div class="card-body">
-                      <p class="mb-4">New Tickets Payed Last 30 Days</p>
+                      <p class="mb-4">serge</p>
                       <p class="fs-30 mb-2"><?php echo $totalPaidTicketsLast30Days ?></p>
                       <button type="submit" class="btn btn-success mr-2" onclick="opendns()">Show more</button>
                     </div>
@@ -780,80 +772,10 @@ echo $date;
                     </table>
                   </div>
                   <button onclick="closedns()" class="btn btn-danger mr-2">Close</button>
-              </div>
+              </div> -->
               <!-- ticket has payed end -->
             </div>
-         
-          <div class="row">
-          <div class="col-md-12 mb-2  stretch-card transparent">
-                  <div class="card card-light-blue">
-                    <div class="card-body">
-                      <p class="mb-4">Donation Last 30 Days</p>
-                      <p class="fs-30 mb-2"><?php echo $totalDonationLast30Days ?></p>
-                      <button type="submit" class="btn btn-success mr-2" onclick="openrefound()">Show more</button>
-                    </div>
-                  </div>
-                </div>
-                <div class="popupz" id="popup_refound">
-                  <h4 class="card-title">Last 30 Donated users </h4>
-                  <p class="card-description"></p>
-                  <div class="table-responsive pt-3">
-                  <table class="table table-bordered">
-                        <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Names</th>
-                            <th>Email</th>
-                            <th>Amount</th>
-                            <th>Donated_at</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                      <?php
-                      $i=1;
-                      while($donation=mysqli_fetch_array($donationLast30Days))
-                      {
-                        $name=$donation['1'];
-                        $email=$donation['2'];
-                        $amount=$donation['3'];                      
-                                  
-                        $at=$donation['6'];
-                        
-                        echo '<tr>
-                            <td>' . $i++ . '</td>
-                            <td>' . $name . '</td>
-                            <td>' . $email . '</td>
-                            <td>' . $amount . '</td>
-                          
-                            <td>' . $at . '</td>
-                        </tr>';
-                      
-                        
-                        
-                      }
-                      ?>
-                        </tbody>
-                    </table>
-                  </div>
-                  <button onclick="closerefound()" class="btn btn-danger mr-2">Close</button>
-              </div>
-              
-              <script>
-                  function openrefound() {
-                      
-                      document.getElementById("popup_refound").style.display = "block";
-                  }
-              
-                  function closerefound() {
-                      
-                      document.getElementById("popup_refound").style.display = "none";
-                  }
-              </script>
-                
-              </div>
-            </div>
           </div>
-          
           <!-- short report end -->
           <div class="row">
             <div class="col-md-5 grid-margin stretch-card">
@@ -874,54 +796,69 @@ echo $date;
                       <p class="text-muted">Subscriptions(monthly)</p>
                       <h3 class="text-primary fs-30 font-weight-medium"><?php echo $totalPaidActivation ?></h3>
                     </div>
-                    <div class="mr-5 mt-3">
+                    <div class="mt-3">
                       <p class="text-muted">Tickets(daily)</p>
                       <h3 class="text-primary fs-30 font-weight-medium"><?php echo $totalPayedTickets?></h3>
                     </div> 
-                    <div class="mr-5 mt-3">
-                      <p class="text-muted">Total Donation</p>
-                      <h3 class="text-primary fs-30 font-weight-medium"><?php echo $totalDonation ?></h3>
-                    </div>
-                  
                   </div>
                   </div>
               </div>
               
             </div>
-            <canvas id="myChart"></canvas>
+                  <canvas id="myChart"></canvas>
 
 <script>
-  const sub = <?php echo $totalPaidActivation ?>;
-    const tick = <?php echo $totalPayedTickets ?>;
+  const sub="<?php echo $totalPaidActivation  ?> ";
+  const tick="<?php echo $totalPayedTickets  ?> ";
 
-    // Chart.js
-    const ctx = document.getElementById('myChart').getContext('2d');
-    const myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Monthly Subscriptions', 'Daily Tickets'],
-            datasets: [{
-                label: 'Chart',
-                data: [sub, tick],
-                backgroundColor: [
-                    'rgba(75, 192, 192, 0.2)', // Monthly Subscriptions color
-                    'rgba(255, 99, 132, 0.2)'  // Daily Tickets color
-                ],
-                borderColor: [
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(255, 99, 132, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
+   // Function to generate an array of numbers from 1 to the limit
+   const generateArray = (limit) => {
+      const arr = [];
+      for (let i = 1; i <= limit; i++) {
+        arr.push(i);
+      }
+      return arr;
+    };
+
+  // Data for the chart
+  const data = {
+    labels: ['Subscriptions', 'Tickets'],
+    datasets: [
+      {
+        label: 'Subscriptions',
+        data: generateArray(sub), // Replace with your data
+        backgroundColor: 'rgba(54, 162, 235, 0.5)',
+        borderColor: 'rgba(54, 162, 235, 1)',
+        borderWidth: 1
+      },
+      {
+        label: 'Tickets',
+        data: generateArray(tick), // Replace with your data
+        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        borderColor: 'rgba(255, 99, 132, 1)',
+        borderWidth: 1
+      }
+    ]
+  };
+
+  // Configuration options
+  const options = {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  };
+
+  // Get the canvas element
+  const ctx = document.getElementById('myChart').getContext('2d');
+
+  // Create the chart
+  const myChart = new Chart(ctx, {
+    type: 'bar',
+    data: data,
+    options: options
+  });
 </script>
                
             <div class="col-md-7 grid-margin stretch-card">
@@ -1184,63 +1121,7 @@ echo $date;
               </div>
             </div>
           </div>
-         <!-- doneted user -->
-         <div class="col-lg-12 grid-margin stretch-card">
-            <div class="card">
-              <div class="card-body">
-                <h4 class="card-title">Donated users</h4>
-                <!-- <p class="card-description">
-                  
-                </p> -->
-                <div class="table-responsive pt-3">
-                  <table class="table table-bordered">
-                    <thead>
-                      <tr>
-                        <th>
-                          N<sup>o</sup>
-                        </th>
-                        <th>
-                          Names
-                        </th>
-                        <th>
-                          Email
-                        </th>
-                        <th>
-                          Amount_donated
-                        </th>
-                        <th>
-                          Doneted_at
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    <?php
-                     
-                    //  while ($donationData=mysqli_fetch_array($donations)) {
-                    //   $name=$donationData['u_name'];
-                    //   $email=$donationData['u_email'];
-                    //   $phone=$donationData['u_phone'];
-                    //   $at=$donationData['created_at'];
-                    //  echo  "<tr><td>$id</td><td>$name</td><td>$email</td><td>$phone</td><td>$at</td></tr>";
-                    //  $id++;
-                    //  }
-                    $ii = 1;
-                    while ($donationData=mysqli_fetch_array($donations)) {
-                        $name=$donationData[1];
-                        $email=$donationData[2];
-                        $amount=$donationData[3];
-                        $at=$donationData[6];
-                        echo  "<tr><td>$ii</td><td>$name</td><td>$email</td><td>$amount</td><td>$at</td></tr>";
-                        $ii++;
-                    }
-                     ?>
-                     
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
+        
 
         <!-- content-wrapper ends -->
         <!-- partial:partials/_footer.html -->

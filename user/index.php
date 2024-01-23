@@ -157,13 +157,15 @@ if (mysqli_num_rows($selectt)) {
 									else{
 										$amm=="5000frw";
 									}
-									echo "<li><a href='pay.php?t_number=$number' style='color:#777777'>$number</a></li><br>
-									</ul>
-						</li>";
+									echo "<li><a href='pay.php?t_number=$number' style='color:#777777'>$number</a></li>
+									
+						";
 								}
+								echo "</ul>";
 							}
+
 						?>
-					
+					</li>
 						<li id="cart"><a href="#">Tickets(<i>
 							<?php
 
@@ -647,11 +649,65 @@ echo "<ul class=\"cart\">";
         });
     });
 </script>
-
-							<div class="modal-footer">
-								<button type="button" class="btn btn-success" data-dismiss="modal">Refound</button>
 								<!-- You can add additional buttons or actions here -->
-							</div>
+							<!-- <div class="modal-footer">
+								<button type="button" class="btn btn-success" data-dismiss="modal">Refound</button>
+								
+							</div> -->
+							<!-- donata form start -->
+<div class="modal" id="refundModal">
+    <div class="col-md-6 modal-dialog ">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Refund Form</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="modal-body">
+                <!-- Your refund form content goes here -->
+				<form id="donationForm" action="refoundPayment.php" method="post">
+                           
+
+						   <!-- Donor Information -->
+						   <div class="mb-3">
+							   <label for="name" class="form-label">Full Name</label>
+							   <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
+						   </div>
+
+						   <div class="mb-3">
+							   <label for="email" class="form-label">Email Address</label>
+							   <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required>
+						   </div>
+
+						  
+							<!-- Donation Amount -->
+							<div class="mb-3">
+							   <label for="amount" class="form-label">Donation Amount</label>
+							   <input type="number" class="form-control" id="amount" name="amount" placeholder="Enter amount" required>
+						   </div>
+												  
+						   <!-- Submit Button -->
+						   <button type="submit" class="btn btn-primary w-100">Donate Now</button>
+					   </form>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+                <!-- Additional buttons or actions can be added here -->
+                <button type="button" class="btn btn-primary">Confirm you Danata</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#refundModal">Refund</button>
+    <!-- You can add additional buttons or actions here -->
+</div>
+
+							<!-- donata form end -->
 						</div>
 					</div>
 				</div>
@@ -692,7 +748,7 @@ echo "<ul class=\"cart\">";
 				</div>
 				<div class="col-md-4">
 					<div class="price-box popular">
-						<div class="popular-text">International</div>
+						
 						<h2 class="pricing-plan">Plus</h2>
 						<div class="price"><sup class="currency">Rwf</sup>42500<small>/mo</small></div>
 						<p>Based on outside of African</p>
@@ -701,7 +757,7 @@ echo "<ul class=\"cart\">";
 							<li>Unlimitted projects</li>
 							<li>100 Pages</li>
 							<li>100 Emails</li>
-							<li>700 Images</li>
+							
 						</ul>
 					<?php
 						if($sub<1)

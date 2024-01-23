@@ -1,20 +1,16 @@
 <?php
-session_start();
-
 require '../vendor/autoload.php';
-
-
+require '../php/conn.php';
 // require_once '../vendor/phpmailer\phpmailer';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 
-$conn=mysqli_connect("localhost","root","","nyandungu") or die("failed to connect");
 $ticketNumber= $_SESSION['paidTicket'];
 $amount=$_SESSION['paidAmount'];
 $method=$_SESSION['method'];
 
 $size=200;
-$url="<a href='localhost/nyandungu/user/agent.php?t_number=$ticketNumber'></a>";
+$url="<a href='localhost/nyandungu/user/agent.php?t_number=$ticketNumber'>verify ticket</a>";
 $qrCodeUrl = "https://chart.googleapis.com/chart?chs={$size}x{$size}&cht=qr&chl=" . urlencode($url);
 $updateTicket = $conn->query("UPDATE ticket set t_status=3,created_at=now() where t_number='$ticketNumber'");
 $paTicket=$conn->query("INSERT into payment values(null,'$amount','$ticketNumber',null,'$method',now())");
