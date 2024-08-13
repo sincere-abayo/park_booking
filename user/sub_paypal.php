@@ -44,8 +44,8 @@ if (isset($_POST['paypal'])) {
                     'amount' => $formatedAmount,
                     'currency' => 'USD',
                     'description' => 'Buying Nyandungu monthly subscription',
-                    'returnUrl' => 'https://halibut-settled-sharply.ngrok-free.app/nyandungu/user/sub_success.php',
-                    'cancelUrl' => 'https://halibut-settled-sharply.ngrok-free.app/nyandungu/user/sub_canceled.php',
+                    'returnUrl' => 'https://scorpion-learning-tiger.ngrok-free.app/park_booking/user/sub_success.php',
+                    'cancelUrl' => 'https://scorpion-learning-tiger.ngrok-free.app/park_booking/user/sub_canceled.php',
                 ])->send();
 
                 // Redirect to PayPal for payment authorization

@@ -11,7 +11,7 @@ if( !isset($_GET['ticket']) || empty($_GET['ticket'])){
 $ticketNumber= $_GET['ticket'];
 
 $size=200;
-$url="<a href='https://feasible-weekly-ringtail.ngrok-free.app/user/agent.php?t_number=$ticketNumber'></a>";
+$url="<a href='https://scorpion-learning-tiger.ngrok-free.app/park_booking/user/agent.php?t_number=$ticketNumber'></a>";
 $qrCodeUrl = "https://chart.googleapis.com/chart?chs={$size}x{$size}&cht=qr&chl=" . urlencode($url);
 
 // if ($updateTicket && $paTicket) {

@@ -151,8 +151,8 @@ $totalActivatedLast30Days = mysqli_num_rows($activatedLast30Days);
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo mr-5" href="index.php"><img src="../../images/logo.svg" class="mr-2" alt="logo"/></a>
-        <a class="navbar-brand brand-logo-mini" href="index.php"><img src="../../images/logo-mini.svg" alt="logo"/></a>
+        <a class="navbar-brand brand-logo mr-5" href="../../index.php">Admin<span class="ti-crown" style="color: black;"></span></a>
+        <!-- <a class="navbar-brand brand-logo-mini" href="index.php"><img src="images/logo-mini.svg" alt="logo"/></a> -->
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -171,72 +171,26 @@ $totalActivatedLast30Days = mysqli_num_rows($activatedLast30Days);
           </li>
         </ul>
         <ul class="navbar-nav navbar-nav-right">
-        <!--  <li class="nav-item dropdown">
-            <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
-              <i class="icon-bell mx-0"></i>
-              <span class="count"></span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
-              <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <div class="preview-icon bg-success">
-                    <i class="ti-info-alt mx-0"></i>
-                  </div>
-                </div>
-                <div class="preview-item-content">
-                  <h6 class="preview-subject font-weight-normal">Application Error</h6>
-                  <p class="font-weight-light small-text mb-0 text-muted">
-                    Just now
-                  </p>
-                </div>
-              </a>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <div class="preview-icon bg-warning">
-                    <i class="ti-settings mx-0"></i>
-                  </div>
-                </div>
-                <div class="preview-item-content">
-                  <h6 class="preview-subject font-weight-normal">Settings</h6>
-                  <p class="font-weight-light small-text mb-0 text-muted">
-                    Private message
-                  </p>
-                </div>
-              </a>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <div class="preview-icon bg-info">
-                    <i class="ti-user mx-0"></i>
-                  </div>
-                </div>
-                <div class="preview-item-content">
-                  <h6 class="preview-subject font-weight-normal">New user registration</h6>
-                  <p class="font-weight-light small-text mb-0 text-muted">
-                    2 days ago
-                  </p>
-                </div>
-              </a>
-            </div>
-          </li> -->
+      
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-              <img src="../../images/faces/face28.jpg" alt="profile"/>
-       
+              <!-- <img src="images/faces/face28.jpg" alt="profile"/> -->
+              <span class="ti-user" style="color: black;"></span>
+        
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
               <a class="dropdown-item">
                 <i class="ti-settings text-primary"></i>
                 Settings
               </a>
-              <a href="../../php/logout.php" class="dropdown-item">
+              <a href="php/logout.php" class="dropdown-item">
                 <i class="ti-power-off text-primary"></i>
                 Logout
-              </a>
+               </a>
             </div>
           </li>
           <li class="nav-item nav-settings d-none d-lg-flex">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="#" >
               <i class="icon-ellipsis"></i>
             </a>
           </li>
@@ -422,7 +376,7 @@ $totalActivatedLast30Days = mysqli_num_rows($activatedLast30Days);
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="../../index.php">
               <i class="icon-grid menu-icon"></i>
               <span class="menu-title">Dashboard</span>
             </a>
@@ -436,24 +390,13 @@ $totalActivatedLast30Days = mysqli_num_rows($activatedLast30Days);
             </a>
             <div class="collapse" id="form-elements">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"><a class="nav-link" href="pages/forms/destination.php">Add destination</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../pages/forms/destination.php">Add destination</a></li>
                 
               </ul>
             </div>
-          </li>
-          
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
-              <i class="icon-bar-graph menu-icon"></i>
-              <span class="menu-title">Charts</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="charts">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">Chart of grouth</a></li>
-              </ul>
-            </div>
-          </li>
+          </li> 
+          <li class="nav-item"> <a class="nav-link" href="agent.php">Agents</a></li>
+       
 
         </ul>
       </nav>
@@ -538,7 +481,7 @@ size: 60px;
                 <div class="card-body">
                   <p class="card-title mb-0">Agents List <?php
                   
-                  if (isset($_POST['aprove'])) {
+                  if (isset($_POST['approve'])) {
                     $id=$_POST['id'];
                     $update=$conn->query("UPDATE agent set a_status='approved' where a_id='$id'");
                     if ($update) {

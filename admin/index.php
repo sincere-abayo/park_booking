@@ -149,8 +149,8 @@ $totalDonation = mysqli_num_rows($donations);
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo mr-5" href="index.php"><img src="images/logo.svg" class="mr-2" alt="logo"/></a>
-        <a class="navbar-brand brand-logo-mini" href="index.php"><img src="images/logo-mini.svg" alt="logo"/></a>
+        <a class="navbar-brand brand-logo mr-5" href="index.php">Admin<span class="ti-crown" style="color: black;"></span></a>
+        <!-- <a class="navbar-brand brand-logo-mini" href="index.php"><img src="images/logo-mini.svg" alt="logo"/></a> -->
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -169,59 +169,12 @@ $totalDonation = mysqli_num_rows($donations);
           </li>
         </ul>
         <ul class="navbar-nav navbar-nav-right">
-        <!--  <li class="nav-item dropdown">
-            <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
-              <i class="icon-bell mx-0"></i>
-              <span class="count"></span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
-              <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <div class="preview-icon bg-success">
-                    <i class="ti-info-alt mx-0"></i>
-                  </div>
-                </div>
-                <div class="preview-item-content">
-                  <h6 class="preview-subject font-weight-normal">Application Error</h6>
-                  <p class="font-weight-light small-text mb-0 text-muted">
-                    Just now
-                  </p>
-                </div>
-              </a>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <div class="preview-icon bg-warning">
-                    <i class="ti-settings mx-0"></i>
-                  </div>
-                </div>
-                <div class="preview-item-content">
-                  <h6 class="preview-subject font-weight-normal">Settings</h6>
-                  <p class="font-weight-light small-text mb-0 text-muted">
-                    Private message
-                  </p>
-                </div>
-              </a>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <div class="preview-icon bg-info">
-                    <i class="ti-user mx-0"></i>
-                  </div>
-                </div>
-                <div class="preview-item-content">
-                  <h6 class="preview-subject font-weight-normal">New user registration</h6>
-                  <p class="font-weight-light small-text mb-0 text-muted">
-                    2 days ago
-                  </p>
-                </div>
-              </a>
-            </div>
-          </li> -->
+      
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
               <!-- <img src="images/faces/face28.jpg" alt="profile"/> -->
               <span class="ti-user" style="color: black;"></span>
-       
+        
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
               <a class="dropdown-item">
@@ -231,11 +184,11 @@ $totalDonation = mysqli_num_rows($donations);
               <a href="php/logout.php" class="dropdown-item">
                 <i class="ti-power-off text-primary"></i>
                 Logout
-              </a>
+               </a>
             </div>
           </li>
           <li class="nav-item nav-settings d-none d-lg-flex">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="#" >
               <i class="icon-ellipsis"></i>
             </a>
           </li>
@@ -421,7 +374,7 @@ $totalDonation = mysqli_num_rows($donations);
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="index.php">
               <i class="icon-grid menu-icon"></i>
               <span class="menu-title">Dashboard</span>
             </a>
@@ -716,11 +669,11 @@ echo $date;
                     <div class="card-body">
                       <p class="mb-4">New Tickets Payed Last 30 Days</p>
                       <p class="fs-30 mb-2"><?php echo $totalPaidTicketsLast30Days ?></p>
-                      <button type="submit" class="btn btn-success mr-2" onclick="opendns()">Show more</button>
+                      <button type="submit" class="btn btn-success mr-2" onclick="openticket()">Show more</button>
                     </div>
                   </div>
                 </div>
-                <div class="popupz" id="popup_dns">
+                <div class="popupz" id="popup_ticket">
                   <h4 class="card-title">Last 30 Days payed Tickets </h4>
                   <p class="card-description"></p>
                   <div class="table-responsive pt-3">
@@ -779,11 +732,20 @@ echo $date;
                         </tbody>
                     </table>
                   </div>
-                  <button onclick="closedns()" class="btn btn-danger mr-2">Close</button>
+                  <button onclick="closeticket()" class="btn btn-danger mr-2">Close</button>
               </div>
               <!-- ticket has payed end -->
             </div>
          
+<script>
+    function openticket() {
+        document.getElementById("popup_ticket").style.display = "block";
+    }
+
+    function closeticket() {
+        document.getElementById("popup_ticket").style.display = "none";
+    }
+</script>
           <div class="row">
           <div class="col-md-12 mb-2  stretch-card transparent">
                   <div class="card card-light-blue">
@@ -889,8 +851,9 @@ echo $date;
               
             </div>
             <canvas id="myChart"></canvas>
-
+            
 <script>
+  
   const sub = <?php echo $totalPaidActivation ?>;
     const tick = <?php echo $totalPayedTickets ?>;
 
@@ -902,6 +865,7 @@ echo $date;
             labels: ['Monthly Subscriptions', 'Daily Tickets'],
             datasets: [{
                 label: 'Chart',
+               
                 data: [sub, tick],
                 backgroundColor: [
                     'rgba(75, 192, 192, 0.2)', // Monthly Subscriptions color
@@ -1216,14 +1180,7 @@ echo $date;
                     <tbody>
                     <?php
                      
-                    //  while ($donationData=mysqli_fetch_array($donations)) {
-                    //   $name=$donationData['u_name'];
-                    //   $email=$donationData['u_email'];
-                    //   $phone=$donationData['u_phone'];
-                    //   $at=$donationData['created_at'];
-                    //  echo  "<tr><td>$id</td><td>$name</td><td>$email</td><td>$phone</td><td>$at</td></tr>";
-                    //  $id++;
-                    //  }
+                
                     $ii = 1;
                     while ($donationData=mysqli_fetch_array($donations)) {
                         $name=$donationData[1];
@@ -1242,18 +1199,7 @@ echo $date;
             </div>
           </div>
 
-        <!-- content-wrapper ends -->
-        <!-- partial:partials/_footer.html -->
-        <!-- <footer class="footer">
-          <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021.  Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash. All rights reserved.</span>
-            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="ti-heart text-danger ml-1"></i></span>
-          </div>
-          <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Distributed by <a href="https://www.themewagon.com/" target="_blank">Themewagon</a></span> 
-          </div>
-        </footer>  -->
-        <!-- partial -->
+ 
       </div>
       <!-- main-panel ends -->
     </div>   

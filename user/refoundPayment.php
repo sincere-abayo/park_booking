@@ -117,15 +117,59 @@ $email=$_POST['email'];
 				
 				<div class="row">
 					<div class="col-sm-4 col-xs-12">
-						<div id="gtco-logo"><a href="index.html">Kigali &mdash; Traveler <em>.</em></a></div>
+						<div id="gtco-logo"><a href="index.php">Kigali &mdash; Traveler <em>.</em></a></div>
 					</div>
 					<div class="col-xs-8 text-right menu-1">
 						<ul>
-							<li><a href="../destination.html">Destination</a></li>
+							<li><a href=".../destination.php">Destination</a></li>
 							
-							<li><a href="../pricing.html">Pricing</a></li>
-							<li><a href="../contact.html">Contact</a></li>
 							
+							<li><a href=".../contact.php">Contact</a></li>
+							<li><a href="#"><?php
+echo $_SESSION['email'];
+?></a></li>    
+				<li><a href="../php/logout.php">Logout</a></li>
+
+				<li id="cart"><a href="#">Cart(<i>
+
+							<?php
+							
+$email = isset($_SESSION['email']) && $_SESSION['email'] !== "" ? $_SESSION['email'] : $_SESSION['admin'];
+
+$select=$conn->query("SELECT * from ticket where u_email='$email' and t_status=0" ) or die("failed to get cart");
+
+  http_response_code(200);
+$cart=mysqli_num_rows($select);
+echo "$cart";
+							?>
+ </i>)</a>
+                        
+						<?php
+$selectt=$conn->query("SELECT * from ticket where u_email='$email' and t_status=0" ) or die("failed to get cart");
+if (mysqli_num_rows($selectt)) {
+	echo "<ul class=\"cart\">";
+
+								while ($row=mysqli_fetch_array($selectt)) {
+									$number=$row['t_number'];
+									$type=$row['t_nationality'];
+									$amm=0;
+									if($type =="eastAfrica")
+									{
+										$amm="1500 frw";
+									}
+									else{
+										$amm=="5000frw";
+									}
+									echo "<li><a href='pay.php?t_number=$number' style='color:#777777'>$number</a></li>
+									
+						";
+								}
+								echo "</ul>";
+							}
+
+						?>
+					</li>
+					
 						</ul>	
 					</div>
 				</div>
@@ -141,9 +185,12 @@ $email=$_POST['email'];
 						
 		
 						<div class="row row-mt-15em">
-							<div class="col-md-7 md-text  animate-box" data-animate-effect="fadeInUp">
-								<h1 style="color:black;font-weight:bold">Confirm your payment to Refound project ,choose your best </h1>	
-							</div>
+						<div class="col-md-7 mt-text animate-box" data-animate-effect="fadeInUp">
+							<h1>Confirm your payment to Refound project ,choose your best</h1>	
+						</div>
+							<!-- <div class="col-md-7 md-text  animate-box" data-animate-effect="fadeInUp">
+								<h1 style="color:black;font-weight:bold"> </h1>	
+							</div> -->
 							<div class="col-md-4 col-md-push-1 animate-box" data-animate-effect="fadeInRight">
 								<div class="form-wrap">
 									<div class="tab">
@@ -156,7 +203,7 @@ $email=$_POST['email'];
                                                   
                                                     <!-- Image and Submit Button for PayPal -->
                                                     <div class="row align-items-center mt-1">
-                                                        <div class="col-sm-1">
+                                                        <div class="col-sm-1 ">
                                                             <img class="img-fluid" src="../images/mtn.png " alt="MTN Logo" style="width: 30px; border-radius: 12px;">
                                                         </div>
                                                         <div class="col-md-8">
@@ -188,7 +235,7 @@ $email=$_POST['email'];
 															<!-- Add your new account form fields here -->
 															<div class="row form-group">
 																<h3><small style="color: rgb(44, 99, 154);">
-							Pay <?php echo $amount;?>     Rwf with MTN</small> </h3>
+																	Pay <?php echo $amount;?>     Rwf with MTN</small> </h3>
 																<div class="col-md-12">
 																	<label for="newUsername">Enter mtn number to pay with</label>
 																	<input type="number" id="paynumber" class="form-control">

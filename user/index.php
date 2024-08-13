@@ -119,7 +119,7 @@ $selectDestination=$conn->query("SELECT * from destination");
 				</div>
 				<div class="col-xs-8 text-right menu-1">
 					<ul>
-					<li><a href="destination.html">Destination</a></li>
+					<li><a href="../destination.php">Destination</a></li>
 						
 						<!-- <li><a href="pricing.html">Pricing</a></li> -->
 						<!-- <li><a href="contact.html">Contact</a></li> -->
@@ -280,7 +280,7 @@ echo "<ul class=\"cart\">";
 
 					<div class="row row-mt-15em">
 						<div class="col-md-7 mt-text animate-box" data-animate-effect="fadeInUp">
-							<h1>Planing Trip To Anywhere in The Kigali?</h1>	
+							<h1>Planing Trip To in The Nyandungu?</h1>	
 						</div>
 						<div class="col-md-4 col-md-push-1 animate-box" data-animate-effect="fadeInRight">
 							<div class="form-wrap">
@@ -905,7 +905,7 @@ echo "<ul class=\"cart\">";
 	
 
 	<div id="gtco-subscribe">
-		
+	
 	</div>
 
 	<footer id="gtco-footer" role="contentinfo">

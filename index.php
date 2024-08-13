@@ -94,9 +94,10 @@ $select=$conn->query("SELECT * from destination");
 			
 		</div>
 	</nav>
-	
+	<!-- start background image changed in here!! -->
 	<header id="gtco-header" class="gtco-cover gtco-cover-md" role="banner" style="background-image: url(images/rest.jpg)">
-		<!-- <div class="overlay">serge</div> -->
+	<!-- end background image changed in here!! -->	
+	
 		<div class="gtco-container">
 			<div class="row">
 				<div class="col-md-12 col-md-offset-0 text-left">
@@ -104,7 +105,7 @@ $select=$conn->query("SELECT * from destination");
 
 					<div class="row row-mt-15em">
 						<div class="col-md-7 mt-text animate-box" data-animate-effect="fadeInUp">
-							<h1>Planing Trip To Anywhere in The Kigali?</h1>	
+							<h1>Planing Trip in Nyandungu?</h1>	
 						</div>
 						<div class="col-md-4 col-md-push-1 animate-box" data-animate-effect="fadeInRight">
 							<div class="form-wrap">
@@ -494,7 +495,7 @@ $select=$conn->query("SELECT * from destination");
 	
 
 	<div id="gtco-subscribe">
-		
+		 <!-- <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus molestiae aperiam dolores, impedit quaerat id itaque a. Nesciunt sint veritatis eius laboriosam magni similique? Tenetur harum asperiores ducimus maiores obcaecati.</h1> -->
 	</div>
 
 	<footer id="gtco-footer" role="contentinfo">

@@ -46,8 +46,8 @@ if (isset($_POST['paypal'])) {
                     'amount' => $formatedAmount,
                     'currency' => 'USD',
                     'description' => 'Refound project',
-                    'returnUrl' => 'https://faithful-big-martin.ngrok-free.app/park_booking/user/refound_success.php',
-                    'cancelUrl' => 'https://faithful-big-martin.ngrok-free.app/park_booking/user/refound_canceled.php',
+                    'returnUrl' => 'https://scorpion-learning-tiger.ngrok-free.app/park_booking/user/refound_success.php',
+                    'cancelUrl' => 'https://scorpion-learning-tiger.ngrok-free.app/park_booking/user/refound_canceled.php',
                 ])->send();
 
                 // Redirect to PayPal for payment authorization

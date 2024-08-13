@@ -12,7 +12,7 @@ $amount=$_SESSION['paidAmount'];
 $method=$_SESSION['method'];
 // $type=$_SESSION['sub_type'];
 $size=200;
-$url="<a href='https://feasible-weekly-ringtail.ngrok-free.app/user/agent.php?t_number=$ticketNumber'></a>";
+$url="<a href='https://scorpion-learning-tiger.ngrok-free.app/park_booking/user/agent.php?t_number=$ticketNumber'></a>";
 $qrCodeUrl = "https://chart.googleapis.com/chart?chs={$size}x{$size}&cht=qr&chl=" . urlencode($url);
 $updateTicket = $conn->query("UPDATE subscription set s_status=2,created_at=now() where s_number='$ticketNumber'");
 $paTicket=$conn->query("INSERT into payment values(null,'$amount',null,'$ticketNumber','$method',now())");
